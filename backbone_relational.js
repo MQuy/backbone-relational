@@ -72,11 +72,7 @@
             var current_relation = self.getRelation(name);
             _.each(relation.models, function(model) {
               var m = current_relation.get(model.id);
-              if (m) {
-                _.extend(m.attributes , model.attributes);
-              } else {
-                current_relation.push(model)
-              }
+              m ? _.extend(m.attributes , model.attributes) : current_relation.push(model)
             })
 
           } else {
